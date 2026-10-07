@@ -6,6 +6,7 @@
   Original design specifications and typed C# contracts for building a third-person shooter.
 </p>
 <img width="120" height="120" alt="image" src="https://github.com/user-attachments/assets/dcb85827-307a-4a82-8f6a-b3bacd093fbb" />
+<img width="236" height="236" alt="image" src="https://github.com/user-attachments/assets/5c52a376-433f-4f49-953c-d727b2987a92" />
 
 
 ## Why this exists
