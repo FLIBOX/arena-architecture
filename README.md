@@ -5,11 +5,8 @@
   <strong>Server-authoritative multiplayer architecture for Unity</strong><br />
   Original design specifications and typed C# contracts for building a third-person shooter.
 </p>
-<p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2ea44f.svg" alt="MIT License" /></a>
-  <img src="<img width="447" height="447" alt="image" src="https://github.com/user-attachments/assets/0cb1eff3-4a3e-413a-a108-7e2d2f9cfbf5" />
-" />
-</p>
+<img width="447" height="447" alt="image" src="https://github.com/user-attachments/assets/e269d0ef-94e6-4706-9094-87f101038040" />
+
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2ea44f.svg" alt="MIT License" /></a>
   <img src="https://img.shields.io/badge/status-design%20phase-0969da.svg" alt="Design phase" />
