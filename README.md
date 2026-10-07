@@ -5,7 +5,7 @@
   <strong>Server-authoritative multiplayer architecture for Unity</strong><br />
   Original design specifications and typed C# contracts for building a third-person shooter.
 </p>
-<img width="427" height="427" alt="image" src="https://github.com/user-attachments/assets/e269d0ef-94e6-4706-9094-87f101038040" />
+<img width="120" height="120" alt="image" src="https://github.com/user-attachments/assets/dcb85827-307a-4a82-8f6a-b3bacd093fbb" />
 
 
 ## Why this exists
