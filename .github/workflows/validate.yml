@@ -1,0 +1,33 @@
+name: Validate repository
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  documentation:
+    name: Validate documentation links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate local README links
+        shell: pwsh
+        run: |
+          $readme = Get-Content README.md -Raw
+          $links = [regex]::Matches($readme, '\[[^\]]+\]\(([^)#]+)(?:#[^)]*)?\)') |
+            ForEach-Object { $_.Groups[1].Value }
+          $missing = @($links | Where-Object {
+            $_ -notmatch '^(https?://|mailto:)' -and -not (Test-Path $_)
+          })
+
+          if ($missing.Count -gt 0) {
+            throw "Missing README links: $($missing -join ', ')"
+          }
+
+          Write-Host "Validated $($links.Count) local README links."

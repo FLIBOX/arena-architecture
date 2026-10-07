@@ -1,17 +1,53 @@
 # Arena Architecture
 
-An **original, server-authoritative architecture** for a multiplayer third-person shooter in **Unity (C#)**.
-This repo is a design spec plus typed C# contracts you can build a game on. It contains no proprietary code, assets, tuning values or protocol details.
+<p align="center">
+  <strong>Server-authoritative multiplayer architecture for Unity</strong><br />
+  Original design specifications and typed C# contracts for building a third-person shooter.
+</p>
 
-> Status: design phase. Docs are stable, code is contracts/stubs only.
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2ea44f.svg" alt="MIT License" /></a>
+  <img src="https://img.shields.io/badge/status-design%20phase-0969da.svg" alt="Design phase" />
+  <img src="https://img.shields.io/badge/engine-Unity%202022%20LTS%2B-000000.svg" alt="Unity 2022 LTS or newer" />
+  <img src="https://img.shields.io/badge/language-C%23-512bd4.svg" alt="C Sharp" />
+</p>
+
+> **Status:** Design phase. Documentation is stable; code contains contracts and stubs only.
+
+## What this repository is
+
+- An original, server-authoritative design for a multiplayer shooter.
+- A reference for clearly separating client prediction from authoritative simulation.
+- A foundation of typed C# contracts for commands, snapshots, events, and platform boundaries.
+
+## What this repository is not
+
+- A finished game, Unity project template, or networking implementation.
+- A source-compatible recreation of an existing commercial game.
+- A repository of proprietary assets, tuning values, protocol details, or decompiled code.
 
 ## Why this exists
 
 Most shooter tutorials trust the client too much. This project documents a clean split:
 
-- **Clients** sample input, predict, and present (camera, UI, VFX).
-- **The authority** (dedicated server or host) owns movement, ammo, hits, damage and match state.
-- **Everything crosses the wire as typed commands, snapshots and events** instead of string messages or shared mutable globals.
+- **Clients** sample input, predict, and present camera, UI, and VFX.
+- **The authority** (dedicated server or host) owns movement, ammo, hits, damage, and match state.
+- **The wire** carries typed commands, snapshots, and events instead of string messages or shared mutable globals.
+
+```mermaid
+flowchart LR
+    I[Player input] --> C[Client prediction]
+    C -->|typed commands| A[Authoritative simulation]
+    A -->|snapshots and events| C
+    C --> P[Presentation: camera, UI, VFX]
+```
+
+## Start here
+
+1. Read the [architecture overview](docs/00-overview.md) to understand system ownership.
+2. Review [the C# contracts](Assets/Scripts/Core/Contracts.cs) to see the message boundaries.
+3. Follow the [roadmap](docs/10-roadmap.md) to build an original offline vertical slice first.
+4. Add transport and reconciliation only after the authority model is established.
 
 ## Documentation
 
