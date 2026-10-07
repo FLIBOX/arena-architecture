@@ -7,6 +7,22 @@
 </p>
 <img width="447" height="447" alt="image" src="https://github.com/user-attachments/assets/e269d0ef-94e6-4706-9094-87f101038040" />
 
+
+## Why this exists
+
+Most shooter tutorials trust the client too much. This project documents a clean split:
+
+- **Clients** sample input, predict, and present camera, UI, and VFX.
+- **The authority** (dedicated server or host) owns movement, ammo, hits, damage, and match state.
+- **The wire** carries typed commands, snapshots, and events instead of string messages or shared mutable globals.
+
+```mermaid
+flowchart LR
+    I[Player input] --> C[Client prediction]
+    C -->|typed commands| A[Authoritative simulation]
+    A -->|snapshots and events| C
+    C --> P[Presentation: camera, UI, VFX]
+```
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2ea44f.svg" alt="MIT License" /></a>
   <img src="https://img.shields.io/badge/status-design%20phase-0969da.svg" alt="Design phase" />
@@ -27,22 +43,6 @@
 - A finished game, Unity project template, or networking implementation.
 - A source-compatible recreation of an existing commercial game.
 - A repository of proprietary assets, tuning values, protocol details, or decompiled code.
-
-## Why this exists
-
-Most shooter tutorials trust the client too much. This project documents a clean split:
-
-- **Clients** sample input, predict, and present camera, UI, and VFX.
-- **The authority** (dedicated server or host) owns movement, ammo, hits, damage, and match state.
-- **The wire** carries typed commands, snapshots, and events instead of string messages or shared mutable globals.
-
-```mermaid
-flowchart LR
-    I[Player input] --> C[Client prediction]
-    C -->|typed commands| A[Authoritative simulation]
-    A -->|snapshots and events| C
-    C --> P[Presentation: camera, UI, VFX]
-```
 
 ## Start here
 
